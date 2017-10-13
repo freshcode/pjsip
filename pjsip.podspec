@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "pjsip"
-  s.version      = "2.5.5.3"
+  s.version      = "2.5.5.6"
   s.summary      = "Open Source SIP, Media and NAT Traversal Library."
   s.homepage     = "http://www.pjsip.org"
   s.author       = 'www.pjsip.org'
@@ -37,7 +37,8 @@ LICENSE
                           'build/pjproject/src/pjnath/include/**/*',
                           'build/pjproject/src/pjsip/include/**/*'
 
-  s.vendored_libraries  = 'build/openh264/lib/*.a',
+  s.vendored_libraries  = 'build/opus/dependencies/lib/*.a',
+                          'build/openh264/lib/*.a',
                           'build/pjproject/src/pjlib/lib/*.a',
                           'build/pjproject/src/pjlib-util/lib/*.a',
                           'build/pjproject/src/pjmedia/lib/*.a',
