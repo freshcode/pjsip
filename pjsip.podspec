@@ -4,7 +4,7 @@ Pod::Spec.new do |s|
   s.summary      = "Open Source SIP, Media and NAT Traversal Library."
   s.homepage     = "http://www.pjsip.org"
   s.author       = 'www.pjsip.org'
-  s.source       = { :git => "https://github.com/chebur/pjsip.git", :tag => "#{s.version}" }
+  s.source       = { :git => "https://github.com/freshcode/pjsip.git", :tag => "#{s.version}" }
   s.platform     = :ios, '8.0'
   s.description  = <<-DESC
 PJSIP is a free and open source multimedia communication library written in C language implementing standard based protocols such as SIP, SDP, RTP, STUN, TURN, and ICE. It combines signaling protocol (SIP) with rich multimedia framework and NAT traversal functionality into high level API that is portable and suitable for almost any type of systems ranging from desktops, embedded systems, to mobile handsets.
@@ -25,52 +25,38 @@ LICENSE
    }
 
   s.source_files        =
-  s.public_header_files =['build/pjproject/src/pjlib/include/*.h',
-                          'build/pjproject/src/pjlib/include/**/*.h',
-                          'build/pjproject/src/pjlib-util/include/**/*.h',
-                          'build/pjproject/src/pjlib-util/include/*.h',
-                          'build/pjproject/src/pjmedia/include/**/*.h',
-                          'build/pjproject/src/pjmedia/include/*.h',
-                          'build/pjproject/src/pjnath/include/**/*.h',
-                          'build/pjproject/src/pjnath/include/*.h',
-                          'build/pjproject/src/pjsip/include/**/*.h',
-                          'build/pjproject/src/pjsip/include/*.h']
+  s.public_header_files = 'build/pjproject/src/pjlib/include/**',
+                          'build/pjproject/src/pjlib-util/include/**',
+                          'build/pjproject/src/pjmedia/include/**',
+                          'build/pjproject/src/pjnath/include/**',
+                          'build/pjproject/src/pjsip/include/**'
 
-  s.preserve_paths      =['build/pjproject/src/pjlib/include/**/*',
-                          'build/pjproject/src/pjlib/include/*',
+  s.preserve_paths      = 'build/pjproject/src/pjlib/include/**/*',
                           'build/pjproject/src/pjlib-util/include/**/*',
-                          'build/pjproject/src/pjlib-util/include/*',
                           'build/pjproject/src/pjmedia/include/**/*',
-                          'build/pjproject/src/pjmedia/include/*',
                           'build/pjproject/src/pjnath/include/**/*',
-                          'build/pjproject/src/pjnath/include/*',
-                          'build/pjproject/src/pjsip/include/**/*',
-                          'build/pjproject/src/pjsip/include/*']
+                          'build/pjproject/src/pjsip/include/**/*'
 
-  s.vendored_libraries  =['build/openh264/lib/*.a',
-                          'build/opus/dependencies/lib/*.a',
+  s.vendored_libraries  = 'build/openh264/lib/*.a',
                           'build/pjproject/src/pjlib/lib/*.a',
                           'build/pjproject/src/pjlib-util/lib/*.a',
                           'build/pjproject/src/pjmedia/lib/*.a',
                           'build/pjproject/src/pjnath/lib/*.a',
                           'build/pjproject/src/pjsip/lib/*.a',
-                          'build/pjproject/src/third_party/lib/*.a']
+                          'build/pjproject/src/third_party/lib/*.a'
 
-  header_search_paths   =['"$(PODS_ROOT)/pjsip/pjlib/include"',
-                          '"$(PODS_ROOT)/pjsip/pjlib-util/include"',
-                          '"$(PODS_ROOT)/pjsip/pjmedia/include"',
-                          '"$(PODS_ROOT)/pjsip/pjnath/include"',
-                          '"$(PODS_ROOT)/pjsip/pjsip/include"']
+  header_search_paths   = '"$(PODS_ROOT)/pjsip/build/pjproject/src/pjlib/include"',
+                          '"$(PODS_ROOT)/pjsip/build/pjproject/src/pjlib-util/include"',
+                          '"$(PODS_ROOT)/pjsip/build/pjproject/src/pjmedia/include"',
+                          '"$(PODS_ROOT)/pjsip/build/pjproject/src/pjnath/include"',
+                          '"$(PODS_ROOT)/pjsip/build/pjproject/src/pjsip/include"'
 
-  s.xcconfig            = {
-      'HEADER_SEARCH_PATHS'          => header_search_paths.join(' '),
-      'GCC_PREPROCESSOR_DEFINITIONS' => 'PJ_AUTOCONF=1'
-  }
+  s.xcconfig            = {'HEADER_SEARCH_PATHS'          => header_search_paths.join(' '),
+                           'GCC_PREPROCESSOR_DEFINITIONS' => 'PJ_AUTOCONF=1'}
 
   s.dependency            'OpenSSL-Universal', '1.0.1.19'
   s.frameworks          = 'CFNetwork', 'AudioToolbox', 'AVFoundation', 'CoreMedia'
   s.libraries           = 'stdc++'
-  s.header_mappings_dir = 'build/pjproject/src'
+  s.header_mappings_dir = 'build/pjproject'
   s.requires_arc        = false
 end
-
