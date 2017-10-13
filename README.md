@@ -1,6 +1,11 @@
 
 # PJSIP
 
+WARNING: This branch is locked to the latest 2.5.5 release of PJSIP; you should only be using this if your project
+is absolutely required to use this version of the library.  This version has been modified to include OPUS.
+
+We highly recommend you use the latest library from https://github.com/chebur/pjsip instead.
+
 PJSIP is a free and open source multimedia communication library written in C language implementing standard based protocols such as SIP, SDP, RTP, STUN, TURN, and ICE.
 
 ## Features
@@ -17,7 +22,7 @@ PJSIP is a free and open source multimedia communication library written in C la
 Add the following line to your `Podfile` and run `pod install` command.
 
 ```
-pod 'pjsip'
+pod 'pjsip', :git => 'https://github.com/freshcode/pjsip.git', :tag => '2.5.5.6'
 ```
 
 ## Example
